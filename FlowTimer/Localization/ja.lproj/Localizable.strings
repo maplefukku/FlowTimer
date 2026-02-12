@@ -1,0 +1,131 @@
+/* Session Types */
+"session.focus" = "集中";
+"session.shortBreak" = "小休憩";
+"session.longBreak" = "長休憩";
+
+/* Timer States */
+"timer.ready" = "準備完了";
+"timer.paused" = "一時停止";
+
+/* Controls */
+"control.start" = "開始";
+"control.pause" = "一時停止";
+"control.resume" = "再開";
+"control.reset" = "リセット";
+"control.skip" = "スキップ";
+
+/* Display Levels */
+"display.minimal" = "ミニマル";
+"display.standard" = "スタンダード";
+"display.full" = "フル";
+
+/* Quick Stats */
+"stats.sessions" = "セッション";
+"stats.focusTime" = "集中時間";
+"stats.streak" = "連続日数";
+
+/* Footer */
+"footer.statistics" = "統計";
+"footer.settings" = "設定";
+
+/* Presets */
+"preset.deepFocus" = "ディープフォーカス";
+"preset.standard" = "スタンダード";
+"preset.quickSprint" = "クイックスプリント";
+"preset.creativeFlow" = "クリエイティブフロー";
+
+/* Settings - Tabs */
+"settings.general" = "一般";
+"settings.timer" = "タイマー";
+"settings.appearance" = "外観";
+"settings.notifications" = "通知";
+"settings.shortcuts" = "ショートカット";
+
+/* Settings - General */
+"settings.startup" = "起動";
+"settings.launchAtLogin" = "ログイン時に起動";
+"settings.menuBar" = "メニューバー";
+"settings.menuBarDisplay" = "メニューバー表示";
+"settings.display.minimalDesc" = "アイコンのみ — メニューバーをスリムに保つ";
+"settings.display.standardDesc" = "アイコン + 残り時間 — 時間を一目で確認";
+"settings.display.fullDesc" = "アイコン + 時間 + サイクルドット — 全情報を表示";
+"settings.other" = "その他";
+"settings.resetOnboarding" = "オンボーディングを再表示";
+
+/* Settings - Timer */
+"settings.durations" = "時間設定";
+"settings.focusDuration" = "集中時間";
+"settings.shortBreakDuration" = "小休憩";
+"settings.longBreakDuration" = "長休憩";
+"settings.minutes" = "分";
+"settings.cycle" = "サイクル";
+"settings.sessionsPerCycle" = "サイクルあたりのセッション数";
+"settings.automation" = "自動化";
+"settings.autoStartBreaks" = "休憩を自動開始";
+"settings.autoStartFocus" = "集中セッションを自動開始";
+
+/* Settings - Appearance */
+"settings.accentColor" = "アクセントカラー";
+"settings.useSystemAccent" = "システムのアクセントカラーを使用";
+"settings.customColor" = "カスタムアクセントカラー";
+"settings.preview" = "プレビュー";
+
+/* Settings - Notifications */
+"settings.visual" = "視覚";
+"settings.bannerNotification" = "バナー通知";
+"settings.visualPulse" = "メニューバーアイコンのパルス";
+"settings.autoOpenPanel" = "完了時にパネルを自動表示";
+"settings.audio" = "サウンド";
+"settings.soundEnabled" = "サウンド";
+"settings.soundType" = "通知音";
+"settings.volume" = "音量";
+"settings.haptics" = "触覚";
+"settings.hapticEnabled" = "触覚フィードバック";
+"settings.hapticNote" = "Taptic Engine搭載のMacBookで利用可能";
+
+/* Settings - Shortcuts */
+"settings.globalShortcuts" = "グローバルショートカット";
+"settings.globalShortcutsNote" = "パネルが閉じている状態でも動作します。";
+"settings.presetShortcuts" = "プリセットショートカット";
+"settings.panelShortcuts" = "パネルショートカット";
+"settings.panelShortcutsNote" = "パネルが開いているときのみ動作します。";
+
+/* Shortcut Labels */
+"shortcut.togglePanel" = "パネル開閉";
+"shortcut.startStop" = "タイマー開始 / 停止";
+"shortcut.reset" = "タイマーリセット";
+"shortcut.skipBreak" = "休憩スキップ";
+"shortcut.startPauseLocal" = "開始 / 一時停止";
+"shortcut.closePanel" = "パネルを閉じる";
+
+/* Notifications */
+"notification.focusComplete.title" = "セッション完了！";
+"notification.focusComplete.body" = "%d / %d セッション完了。休憩しましょう。";
+"notification.breakComplete.title" = "休憩終了！";
+"notification.breakComplete.body" = "集中の時間です。作業に戻りましょう。";
+
+/* Onboarding */
+"onboarding.back" = "戻る";
+"onboarding.next" = "次へ";
+"onboarding.start" = "始めましょう！";
+"onboarding.welcome.subtitle" = "メニューバーに常駐する美しいポモドーロタイマー。\n作業を中断せずに時間管理。";
+"onboarding.menuBar.title" = "タイマーはここにあります";
+"onboarding.menuBar.body" = "メニューバーをクリックでパネルを開きます。\nもう一度クリックで閉じます。Wi-Fiやバッテリーと同じ操作。\n学習コストはゼロです。";
+"onboarding.preset.title" = "スタイルを選択";
+"onboarding.preset.body" = "あなたの作業スタイルに合ったプリセットを選びましょう。いつでも変更できます。";
+"onboarding.display.title" = "情報密度";
+"onboarding.display.body" = "メニューバーに表示する情報量を選びましょう。";
+"onboarding.display.minimal" = "アイコンのみ — 幅約18px";
+"onboarding.display.standard" = "アイコン + 時間 — 幅約80px";
+"onboarding.display.full" = "アイコン + 時間 + サイクル — 幅約120px";
+
+/* Statistics */
+"statistics.title" = "統計";
+"statistics.exportCSV" = "CSVエクスポート";
+"statistics.exportJSON" = "JSONエクスポート";
+"statistics.week" = "週間";
+"statistics.month" = "月間";
+"stats.todaySessions" = "今日";
+"stats.todayFocus" = "集中時間";
+"stats.dayStreak" = "連続日数";
+"stats.total" = "合計";

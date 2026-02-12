@@ -1,0 +1,131 @@
+/* Session Types */
+"session.focus" = "Focus";
+"session.shortBreak" = "Short Break";
+"session.longBreak" = "Long Break";
+
+/* Timer States */
+"timer.ready" = "Ready";
+"timer.paused" = "Paused";
+
+/* Controls */
+"control.start" = "Start";
+"control.pause" = "Pause";
+"control.resume" = "Resume";
+"control.reset" = "Reset";
+"control.skip" = "Skip";
+
+/* Display Levels */
+"display.minimal" = "Minimal";
+"display.standard" = "Standard";
+"display.full" = "Full";
+
+/* Quick Stats */
+"stats.sessions" = "Sessions";
+"stats.focusTime" = "Focus Time";
+"stats.streak" = "Streak";
+
+/* Footer */
+"footer.statistics" = "Statistics";
+"footer.settings" = "Settings";
+
+/* Presets */
+"preset.deepFocus" = "Deep Focus";
+"preset.standard" = "Standard";
+"preset.quickSprint" = "Quick Sprint";
+"preset.creativeFlow" = "Creative Flow";
+
+/* Settings - Tabs */
+"settings.general" = "General";
+"settings.timer" = "Timer";
+"settings.appearance" = "Appearance";
+"settings.notifications" = "Notifications";
+"settings.shortcuts" = "Shortcuts";
+
+/* Settings - General */
+"settings.startup" = "Startup";
+"settings.launchAtLogin" = "Launch at Login";
+"settings.menuBar" = "Menu Bar";
+"settings.menuBarDisplay" = "Menu Bar Display";
+"settings.display.minimalDesc" = "Icon only — keeps the menu bar slim";
+"settings.display.standardDesc" = "Icon + remaining time — see time at a glance";
+"settings.display.fullDesc" = "Icon + time + cycle dots — all information visible";
+"settings.other" = "Other";
+"settings.resetOnboarding" = "Show Onboarding Again";
+
+/* Settings - Timer */
+"settings.durations" = "Durations";
+"settings.focusDuration" = "Focus Duration";
+"settings.shortBreakDuration" = "Short Break";
+"settings.longBreakDuration" = "Long Break";
+"settings.minutes" = "min";
+"settings.cycle" = "Cycle";
+"settings.sessionsPerCycle" = "Sessions per Cycle";
+"settings.automation" = "Automation";
+"settings.autoStartBreaks" = "Auto-start Breaks";
+"settings.autoStartFocus" = "Auto-start Focus Sessions";
+
+/* Settings - Appearance */
+"settings.accentColor" = "Accent Color";
+"settings.useSystemAccent" = "Use System Accent Color";
+"settings.customColor" = "Custom Accent Color";
+"settings.preview" = "Preview";
+
+/* Settings - Notifications */
+"settings.visual" = "Visual";
+"settings.bannerNotification" = "Banner Notifications";
+"settings.visualPulse" = "Menu Bar Icon Pulse";
+"settings.autoOpenPanel" = "Auto-open Panel on Complete";
+"settings.audio" = "Audio";
+"settings.soundEnabled" = "Sound";
+"settings.soundType" = "Sound";
+"settings.volume" = "Volume";
+"settings.haptics" = "Haptics";
+"settings.hapticEnabled" = "Haptic Feedback";
+"settings.hapticNote" = "Available on MacBooks with Taptic Engine";
+
+/* Settings - Shortcuts */
+"settings.globalShortcuts" = "Global Shortcuts";
+"settings.globalShortcutsNote" = "Global shortcuts work even when the panel is closed.";
+"settings.presetShortcuts" = "Preset Shortcuts";
+"settings.panelShortcuts" = "Panel Shortcuts";
+"settings.panelShortcutsNote" = "Panel shortcuts work only when the panel is open.";
+
+/* Shortcut Labels */
+"shortcut.togglePanel" = "Toggle Panel";
+"shortcut.startStop" = "Start / Stop Timer";
+"shortcut.reset" = "Reset Timer";
+"shortcut.skipBreak" = "Skip Break";
+"shortcut.startPauseLocal" = "Start / Pause";
+"shortcut.closePanel" = "Close Panel";
+
+/* Notifications */
+"notification.focusComplete.title" = "Session Complete!";
+"notification.focusComplete.body" = "%d of %d sessions done. Time for a break.";
+"notification.breakComplete.title" = "Break's Over!";
+"notification.breakComplete.body" = "Time to focus. Let's get back to work.";
+
+/* Onboarding */
+"onboarding.back" = "Back";
+"onboarding.next" = "Next";
+"onboarding.start" = "Let's Start!";
+"onboarding.welcome.subtitle" = "A beautiful Pomodoro timer that lives in your menu bar.\nFocus without disruption.";
+"onboarding.menuBar.title" = "Your Timer Lives Here";
+"onboarding.menuBar.body" = "Click the menu bar to open the panel.\nClick again to close. Just like Wi-Fi or Battery.\nZero learning curve.";
+"onboarding.preset.title" = "Choose Your Style";
+"onboarding.preset.body" = "Pick a preset that matches how you work. You can change this anytime.";
+"onboarding.display.title" = "Information Density";
+"onboarding.display.body" = "Choose how much information to show in your menu bar.";
+"onboarding.display.minimal" = "Icon only — ~18px width";
+"onboarding.display.standard" = "Icon + Time — ~80px width";
+"onboarding.display.full" = "Icon + Time + Cycle — ~120px width";
+
+/* Statistics */
+"statistics.title" = "Statistics";
+"statistics.exportCSV" = "Export CSV";
+"statistics.exportJSON" = "Export JSON";
+"statistics.week" = "Week";
+"statistics.month" = "Month";
+"stats.todaySessions" = "Today";
+"stats.todayFocus" = "Focus Time";
+"stats.dayStreak" = "Day Streak";
+"stats.total" = "Total";

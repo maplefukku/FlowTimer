@@ -1,0 +1,49 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded square background -->
+  <rect width="1024" height="1024" rx="225" fill="url(#bgGradient)"/>
+
+  <!-- Outer circle track (background) -->
+  <circle cx="512" cy="512" r="340" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="40"/>
+
+  <!-- Progress arc (3/4 complete as visual representation) -->
+  <circle cx="512" cy="512" r="340" fill="none"
+          stroke="url(#progressGradient)"
+          stroke-width="45"
+          stroke-linecap="round"
+          stroke-dasharray="1600 2138"
+          stroke-dashoffset="534"
+          transform="rotate(-90 512 512)"/>
+
+  <!-- Inner glow circle -->
+  <circle cx="512" cy="512" r="240" fill="rgba(255,255,255,0.1)"/>
+
+  <!-- Center time indicator dots -->
+  <circle cx="512" cy="380" r="12" fill="white" opacity="0.9"/>
+  <circle cx="512" cy="420" r="12" fill="white" opacity="0.7"/>
+  <circle cx="512" cy="460" r="12" fill="white" opacity="0.5"/>
+
+  <!-- Flow symbol - abstract curved line -->
+  <path d="M 380 550 Q 450 520 512 550 T 644 550"
+        fill="none"
+        stroke="white"
+        stroke-width="16"
+        stroke-linecap="round"
+        opacity="0.8"/>
+
+  <!-- Small accent circles -->
+  <circle cx="512" cy="620" r="8" fill="#fbbf24"/>
+  <circle cx="540" cy="605" r="6" fill="#fbbf24" opacity="0.7"/>
+  <circle cx="484" cy="605" r="6" fill="#fbbf24" opacity="0.7"/>
+</svg>

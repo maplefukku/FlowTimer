@@ -79,7 +79,7 @@ struct OnboardingView: View {
 
             Image(systemName: "timer")
                 .font(.system(size: 56, weight: .thin))
-                .foregroundStyle(.accent)
+                .foregroundStyle(.tint)
                 .symbolEffect(.pulse, options: .repeating)
 
             Text("FlowTimer")
@@ -101,7 +101,7 @@ struct OnboardingView: View {
 
             Image(systemName: "menubar.arrow.up.rectangle")
                 .font(.system(size: 48, weight: .thin))
-                .foregroundStyle(.accent)
+                .foregroundStyle(.tint)
 
             Text(NSLocalizedString("onboarding.menuBar.title", comment: "Your Timer Lives Here"))
                 .font(.system(size: 20, weight: .semibold))
@@ -180,7 +180,7 @@ struct OnboardingView: View {
                 Image(systemName: preset.icon)
                     .font(.system(size: 18))
                     .frame(width: 32, height: 32)
-                    .foregroundStyle(presetManager.activePresetId == preset.id ? .accent : .secondary)
+                    .foregroundStyle(presetManager.activePresetId == preset.id ? Color.accentColor : Color.secondary)
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(preset.name)
@@ -194,7 +194,7 @@ struct OnboardingView: View {
 
                 if presetManager.activePresetId == preset.id {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundStyle(.accent)
+                        .foregroundStyle(.tint)
                 }
             }
             .padding(.horizontal, 14)
@@ -263,7 +263,7 @@ struct OnboardingView: View {
 
                 if appSettings.menuBarDisplayLevel == level {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundStyle(.accent)
+                        .foregroundStyle(.tint)
                 }
             }
             .padding(.horizontal, 14)

@@ -5,12 +5,17 @@ struct FlowTimerApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
+        // Menu bar only app - settings window is managed by SettingsWindowController
         Settings {
-            SettingsView()
-                .environmentObject(appDelegate.pomodoroManager)
-                .environmentObject(appDelegate.appSettings)
-                .environmentObject(appDelegate.presetManager)
-                .environmentObject(appDelegate.sessionStore)
+            EmptyView()
+        }
+        .commands {
+            CommandGroup(replacing: .appSettings) {
+                Button("Settings...") {
+                    appDelegate.showSettings()
+                }
+                .keyboardShortcut(",", modifiers: .command)
+            }
         }
     }
 }

@@ -78,7 +78,7 @@ final class HotKeyService {
     // MARK: - Private
 
     private func registerHotKey(id: UInt32, keyCode: Int, modifiers: UInt32) {
-        var hotKeyID = EventHotKeyID(signature: OSType(0x464C5754), id: id) // "FLWT"
+        let hotKeyID = EventHotKeyID(signature: OSType(0x464C5754), id: id) // "FLWT"
         var hotKeyRef: EventHotKeyRef?
 
         let status = RegisterEventHotKey(

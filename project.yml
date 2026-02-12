@@ -32,7 +32,9 @@ targets:
         COMBINE_HIDPI_IMAGES: true
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks"
         ENABLE_HARDENED_RUNTIME: true
-        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGN_IDENTITY: "Apple Distribution"
+        DEVELOPMENT_TEAM: "U6W8A4Y252"
+        CODE_SIGN_STYLE: Manual
         PRODUCT_NAME: FlowTimer
         SWIFT_EMIT_LOC_STRINGS: true
     info:

@@ -53,8 +53,14 @@ final class PomodoroManager: ObservableObject {
             .map { $0 == .running }
             .assign(to: &$isTimerActive)
 
-        settings.$focusDuration
-            .dropFirst()
+        // Forward timer engine changes to trigger SwiftUI view updates
+        timerEngine.objectWillChange
+            .sink { [weak self] _ in
+                self?.objectWillChange.send()
+            }
+            .store(in: &cancellables)
+
+        settings.objectWillChange
             .sink { [weak self] _ in
                 guard let self = self else { return }
                 if self.timerEngine.state == .idle {
@@ -81,11 +87,13 @@ final class PomodoroManager: ObservableObject {
 
     func stop() {
         timerEngine.stop()
+        sessionStartDate = nil
         configureCurrentSession()
     }
 
     func reset() {
         timerEngine.stop()
+        sessionStartDate = nil
         completedSessionsInCycle = 0
         currentSession = .focus
         configureCurrentSession()
@@ -93,12 +101,14 @@ final class PomodoroManager: ObservableObject {
 
     func skipToNext() {
         timerEngine.stop()
+        sessionStartDate = nil
         advanceToNextSession()
         configureCurrentSession()
     }
 
     func applyPreset(_ preset: Preset) {
         timerEngine.stop()
+        sessionStartDate = nil
         settings.focusDuration = preset.focusMinutes
         settings.shortBreakDuration = preset.shortBreakMinutes
         settings.longBreakDuration = preset.longBreakMinutes
@@ -123,21 +133,33 @@ final class PomodoroManager: ObservableObject {
     }
 
     private func handleSessionComplete() {
-        if currentSession == .focus {
-            completedSessionsInCycle += 1
-            totalCompletedSessions += 1
+        // Record completed session
+        if let start = sessionStartDate {
+            let durationMinutes: Int
+            let sessionType: TimerSession.SessionType
 
-            // Record session
-            if let start = sessionStartDate {
-                let session = TimerSession(
-                    startDate: start,
-                    endDate: Date(),
-                    durationMinutes: settings.focusDuration,
-                    type: .focus,
-                    completed: true
-                )
-                sessionStore.addSession(session)
+            switch currentSession {
+            case .focus:
+                durationMinutes = settings.focusDuration
+                sessionType = .focus
+                completedSessionsInCycle += 1
+                totalCompletedSessions += 1
+            case .shortBreak:
+                durationMinutes = settings.shortBreakDuration
+                sessionType = .shortBreak
+            case .longBreak:
+                durationMinutes = settings.longBreakDuration
+                sessionType = .longBreak
             }
+
+            let session = TimerSession(
+                startDate: start,
+                endDate: Date(),
+                durationMinutes: durationMinutes,
+                type: sessionType,
+                completed: true
+            )
+            sessionStore.addSession(session)
         }
 
         advanceToNextSession()
@@ -152,6 +174,7 @@ final class PomodoroManager: ObservableObject {
             timerEngine.start()
         } else {
             configureCurrentSession()
+            sessionStartDate = nil
         }
     }
 

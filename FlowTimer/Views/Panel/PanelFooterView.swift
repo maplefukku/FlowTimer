@@ -15,9 +15,11 @@ struct PanelFooterView: View {
                         presetChip(preset)
                     }
                 }
+                .padding(.vertical, 2)
             }
+            .frame(height: 30)
 
-            Spacer()
+            Spacer(minLength: 8)
 
             // Statistics button
             Button(action: { showingStatistics.toggle() }) {
@@ -35,6 +37,7 @@ struct PanelFooterView: View {
             .buttonStyle(GlassIconButtonStyle(size: 26))
             .help(NSLocalizedString("footer.settings", comment: "Settings"))
         }
+        .frame(height: 34)
     }
 
     private func presetChip(_ preset: Preset) -> some View {
@@ -42,16 +45,19 @@ struct PanelFooterView: View {
             presetManager.selectPreset(preset)
             pomodoroManager.applyPreset(preset)
         }) {
-            HStack(spacing: 4) {
+            HStack(spacing: 3) {
                 Image(systemName: preset.icon)
-                    .font(.system(size: 9))
+                    .font(.system(size: 8))
+                    .fixedSize()
                 Text(preset.name)
-                    .font(.system(size: 10, weight: .medium))
+                    .font(.system(size: 9, weight: .medium))
+                    .lineLimit(1)
+                    .fixedSize()
             }
-            .padding(.horizontal, 8)
-            .padding(.vertical, 4)
+            .padding(.horizontal, 6)
+            .padding(.vertical, 3)
             .background(
-                RoundedRectangle(cornerRadius: 6)
+                RoundedRectangle(cornerRadius: 5)
                     .fill(
                         presetManager.activePresetId == preset.id
                             ? Color.accentColor.opacity(0.15)
@@ -59,7 +65,7 @@ struct PanelFooterView: View {
                     )
             )
             .overlay(
-                RoundedRectangle(cornerRadius: 6)
+                RoundedRectangle(cornerRadius: 5)
                     .strokeBorder(
                         presetManager.activePresetId == preset.id
                             ? Color.accentColor.opacity(0.3)
@@ -72,10 +78,9 @@ struct PanelFooterView: View {
     }
 
     private func openSettings() {
-        NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
-        // Fallback for older macOS
-        if #unavailable(macOS 14) {
-            NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
+        // Open the Settings window via AppDelegate
+        if let appDelegate = NSApp.delegate as? AppDelegate {
+            appDelegate.showSettings()
         }
     }
 }

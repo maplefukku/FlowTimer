@@ -5,6 +5,9 @@ struct TimerRingView: View {
     @EnvironmentObject var pomodoroManager: PomodoroManager
     @EnvironmentObject var appSettings: AppSettings
 
+    var showCurrentTime: Bool = false
+    var currentTimeString: String = ""
+
     private let lineWidth: CGFloat = 6
 
     var body: some View {
@@ -16,9 +19,9 @@ struct TimerRingView: View {
                 Circle()
                     .stroke(trackColor, lineWidth: lineWidth)
 
-                // Progress arc
+                // Progress arc - decreases clockwise from top (12 o'clock)
                 Circle()
-                    .trim(from: 0, to: pomodoroManager.timerEngine.progress)
+                    .trim(from: pomodoroManager.timerEngine.progress, to: 1.0)
                     .stroke(
                         progressGradient,
                         style: StrokeStyle(
@@ -38,6 +41,13 @@ struct TimerRingView: View {
                         .animation(.easeInOut(duration: 0.2), value: pomodoroManager.timerEngine.remainingSeconds)
 
                     stateIndicator
+
+                    if showCurrentTime {
+                        Text(currentTimeString)
+                            .font(.system(size: 11, weight: .regular))
+                            .foregroundStyle(.tertiary)
+                            .padding(.top, 2)
+                    }
                 }
             }
             .frame(width: size, height: size)
@@ -51,11 +61,12 @@ struct TimerRingView: View {
 
     private var progressGradient: AngularGradient {
         let color = pomodoroManager.isOnBreak ? Color.green : appSettings.accentColor
+        let progressAmount = pomodoroManager.timerEngine.progress
         return AngularGradient(
-            gradient: Gradient(colors: [color.opacity(0.6), color]),
+            gradient: Gradient(colors: [color, color.opacity(0.6)]),
             center: .center,
-            startAngle: .degrees(0),
-            endAngle: .degrees(360 * pomodoroManager.timerEngine.progress)
+            startAngle: .degrees(360 * progressAmount),
+            endAngle: .degrees(360)
         )
     }
 

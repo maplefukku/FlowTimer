@@ -47,7 +47,7 @@ final class MenuBarIconRenderer {
         trackPath.stroke()
 
         if isRunning || isPaused {
-            // Draw progress arc
+            // Draw progress arc - decreases clockwise from top (12 o'clock)
             let progressColor = isOnBreak
                 ? NSColor.systemGreen
                 : NSColor.labelColor
@@ -55,7 +55,7 @@ final class MenuBarIconRenderer {
             progressColor.setStroke()
 
             let startAngle: CGFloat = 90
-            let endAngle: CGFloat = 90 - (360 * CGFloat(progress))
+            let endAngle: CGFloat = 90 - (360 * CGFloat(1.0 - progress))
 
             let arcPath = NSBezierPath()
             arcPath.appendArc(

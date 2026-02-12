@@ -63,6 +63,80 @@ extension View {
     }
 }
 
+// MARK: - Animated Liquid Glass Background
+/// Enhanced version with smooth animations for appearing/disappearing
+struct AnimatedLiquidGlassBackground: ViewModifier {
+    @Environment(\.colorScheme) private var colorScheme
+    let isVisible: Bool
+    let springResponse: Double
+    let springDamping: Double
+
+    func body(content: Content) -> some View {
+        content
+            .background(
+                ZStack {
+                    if isVisible {
+                        // Layer 1: Background blur (via VisualEffectBlur)
+                        VisualEffectBlur(material: .hudWindow, blendingMode: .behindWindow)
+                            .opacity(isVisible ? 1 : 0)
+                            .scaleEffect(isVisible ? 1.0 : 0.98, anchor: .top)
+                            .animation(.spring(response: springResponse, dampingFraction: springDamping), value: isVisible)
+
+                        // Layer 2: Tint layer
+                        tintLayer
+                            .opacity(isVisible ? 1 : 0)
+                            .scaleEffect(isVisible ? 1.0 : 0.98, anchor: .top)
+                            .animation(.spring(response: springResponse, dampingFraction: springDamping), value: isVisible)
+                    }
+                }
+            )
+            // Layer 3: Edge stroke - animated
+            .overlay(
+                Group {
+                    if isVisible {
+                        RoundedRectangle(cornerRadius: 12)
+                            .strokeBorder(edgeStrokeColor, lineWidth: 0.5)
+                            .opacity(isVisible ? 1 : 0)
+                            .animation(.spring(response: springResponse, dampingFraction: springDamping).delay(0.02), value: isVisible)
+                    }
+                }
+            )
+            // Layer 4: Drop shadow - animated
+            .shadow(
+                color: isVisible ? shadowColor : .clear,
+                radius: isVisible ? shadowRadius : 0,
+                x: 0,
+                y: isVisible ? shadowYOffset : 0
+            )
+            .animation(.spring(response: springResponse, dampingFraction: springDamping).delay(0.01), value: isVisible)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+
+    private var tintLayer: some View {
+        RoundedRectangle(cornerRadius: 12)
+            .fill(tintColor)
+    }
+
+    private var tintColor: Color {
+        colorScheme == .dark
+            ? Color(white: 0.16, opacity: 0.25)
+            : Color(white: 1.0, opacity: 0.15)
+    }
+
+    private var edgeStrokeColor: Color {
+        colorScheme == .dark
+            ? Color(white: 1.0, opacity: 0.12)
+            : Color(white: 0.0, opacity: 0.08)
+    }
+
+    private var shadowColor: Color {
+        Color(white: 0.0, opacity: 0.12)
+    }
+
+    private var shadowRadius: CGFloat { 12 }
+    private var shadowYOffset: CGFloat { 2 }
+}
+
 // MARK: - NSVisualEffectView Bridge
 
 struct VisualEffectBlur: NSViewRepresentable {
